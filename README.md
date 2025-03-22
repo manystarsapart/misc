@@ -8,14 +8,17 @@ my fish config file. a simple piece of initialiser code to make the terminal mor
 written for [fish shell](https://fishshell.com/).
 ### features
 #### greeting message
-each time the terminal is launched, or when user runs `fp`, the terminal outputs a greeting message.
+each time the terminal is launched, or when user runs `fp`, the terminal outputs a randomised personalised greeting message (in chinese) from a curated list, with two parts:
 
-sample 1:
+1. an original quote that may or may not be related to coding
+2. a welcomer message
+
+##### sample 1:
 ```
 云山万行 终归终端
           —— 开发者，请执刻刀
 ```
-sample 2:
+##### sample 2:
 ```
 星藏点雪 月隐晦明 拙山枯水大江行
           —— 终端候君久矣
@@ -31,3 +34,6 @@ sample 2:
 - `nrp` --> `npm run preview` (vite)
 - `co` --> `codium` (launches codium)
 - `s` --> `sudo` 
+
+#### additional notes
+- this script also sets the Node.js version to 18 as my machine defaults to using Node 12 and i have yet to change that default setting
