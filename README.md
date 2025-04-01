@@ -1,5 +1,5 @@
 # projects
-## fish shell init script
+## 1. fish shell init script
 ### files 
 `config.fish`
 ### description 
