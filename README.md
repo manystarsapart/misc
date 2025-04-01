@@ -24,7 +24,8 @@ each time the terminal is launched, or when user runs `fp`, the terminal outputs
           —— 终端候君久矣
 ```
 
-The command `fg` can also be run to manually call a randomised greeting. Additionally, use `fg -la` to list all available greetings in the greeting pool.
+#### manual call
+the command `fg` can also be run to manually call a randomised greeting. additionally, use `fg -la` to list all available greetings in the greeting pool.
 
 #### other abbreviations & commands 
 - `c` --> `clear`
