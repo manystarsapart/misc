@@ -33,6 +33,7 @@ the command `fg` can also be run to manually call a randomised greeting. additio
 - `gad` --> `git add .`
 - `gc` --> `git commit -S -m "%"` where % becomes cursor location
 - `gp` --> `git push`
+- `gpl` --> `git pull`
 - `nrd` --> `npm run dev` (vite)
 - `nrb` --> `npm run build` (vite)
 - `nrp` --> `npm run preview` (vite)
