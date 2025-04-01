@@ -18,6 +18,9 @@ abbr -a nrp npm run preview
 abbr -a co codium
 abbr -a s sudo
 
+abbr -a power-saver powerprofilesctl set power-saver
+abbr -a balanced powerprofilesctl set balanced
+
 set_color normal
 echo "private mode: fp"
  
