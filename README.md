@@ -23,6 +23,9 @@ each time the terminal is launched, or when user runs `fp`, the terminal outputs
 星藏点雪 月隐晦明 拙山枯水大江行
           —— 终端候君久矣
 ```
+
+The command `fg` can also be run to manually call a randomised greeting. Additionally, use `fg -la` to list all available greetings in the greeting pool.
+
 #### other abbreviations & commands 
 - `c` --> `clear`
 - `fp` --> `fish --private` (launches fish in private mode)
@@ -33,7 +36,9 @@ each time the terminal is launched, or when user runs `fp`, the terminal outputs
 - `nrb` --> `npm run build` (vite)
 - `nrp` --> `npm run preview` (vite)
 - `co` --> `codium` (launches codium)
-- `s` --> `sudo` 
+- `s` --> `sudo`
+- `power-saver` --> `powerprofilesctl set power-saver`
+- `balanced` --> `powerprofilesctl set balanced`
 
 #### additional notes
 - this script also sets the Node.js version to 18 as my machine defaults to using Node 12 and i have yet to change that default setting
