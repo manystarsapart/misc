@@ -6,13 +6,14 @@
 ---
 
 # 1. fish shell init script
-## files 
-[config.fish](./config.fish)
-
-## description 
 my fish config file. a simple piece of initialiser code to make the terminal more convenient for dev purposes.
 
 written for [fish shell](https://fishshell.com/).
+
+![Init Script Demo 1](./1-initscript/initScriptDemo1.png)
+
+## files 
+[config.fish](1-initscript//config.fish)
 
 ## features
 
@@ -101,8 +102,8 @@ List B:
 
 This aims to serve as a guide and document my endeavor in figuring out how to render my Live2D model on Ubuntu.
 
-![OBS Avatar Demo 1](./img/OBSAvatarDemo1.png)
-![OBS Avatar Demo 2](./img/OBSAvatarDemo2.png)
+![OBS Avatar Demo 2](./2-virtualavatar/OBSAvatarDemo2.png)
+![OBS Avatar Demo 1](./2-virtualavatar/OBSAvatarDemo1.png)
 
 ## Notes
 
@@ -111,7 +112,7 @@ This aims to serve as a guide and document my endeavor in figuring out how to re
 
 ## Files
 
-[runOpenSeeFace.sh](./runOpenSeeFace.sh)
+[runOpenSeeFace.sh](2-virtualavatar/runOpenSeeFace.sh)
 
 ## Workflow
 
