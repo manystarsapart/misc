@@ -101,6 +101,9 @@ List B:
 
 This aims to serve as a guide and document my endeavor in figuring out how to render my Live2D model on Ubuntu.
 
+![OBS Avatar Demo 1](./img/OBSAvatarDemo1.png)
+![OBS Avatar Demo 2](./img/OBSAvatarDemo2.png)
+
 ## Notes
 
 - According to some users online, Lutris sometimes works better than Bottles. I use Bottles simply because I already have Bottles installed.
@@ -242,7 +245,3 @@ sudo modprobe v4l2loopback devices=1 exclusive_caps=1 card_label="OBS-VirtualCam
 
 ---
 
-### Demo
-
-![OBS Avatar Demo 1](./img/OBSAvatarDemo1.png)
-![OBS Avatar Demo 2](./img/OBSAvatarDemo2.png)
