@@ -1,7 +1,8 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+# Commands to run in interactive sessions can go here
 
-nvm use 18 --silent
+nvm use latest --silent
+fish_add_path ~/.local/bin
 
 abbr -a c clear 
 abbr -a fp 'fish --private -C "clear && set_color brred; echo \"Started fish in private mode.\"; set_color normal"'
@@ -10,6 +11,7 @@ abbr -a fg 'fish_greeting'
 abbr -a gad git add .
 abbr -a gc --set-cursor 'git commit -S -m "%"'
 abbr -a gp git push
+abbr -a gpl git pull
 
 abbr -a nrd npm run dev
 abbr -a nrb npm run build
@@ -20,6 +22,8 @@ abbr -a s sudo
 
 abbr -a power-saver powerprofilesctl set power-saver
 abbr -a balanced powerprofilesctl set balanced
+
+abbr -a openseeface ~/Documents/runOpenSeeFace.sh
 
 set_color normal
 echo "private mode: fp"
