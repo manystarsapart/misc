@@ -100,7 +100,7 @@ List B:
 
 # 2. VTuber avatar on Ubuntu
 
-This aims to serve as a guide and document my endeavor in figuring out how to render my Live2D model on Ubuntu.
+This aims to serve as a guide and document my endeavor in figuring out how to render my virtual avatar model on Ubuntu.
 
 ![OBS Avatar Demo 2](./2-virtualavatar/OBSAvatarDemo2.png)
 ![OBS Avatar Demo 1](./2-virtualavatar/OBSAvatarDemo1.png)
