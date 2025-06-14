@@ -295,7 +295,7 @@ But I wanted a way to opt out. No go.
 Then I tried `question`: 
 
 ```bash
-if zenity --question --text="Caffeine?"; then
+if zenity --question --text "Caffeine?"; then
     # yes
     echo "Yes"
 else
