@@ -2,6 +2,7 @@
 
 1. [fish shell init script](#1-fish-shell-init-script) - 22 mar 2025
 2. [VTuber avatar on Ubuntu](#2-vtuber-avatar-on-ubuntu) - 27 apr 2025
+3. [Attempt on automating a Caffeine workflow](#3-attempt-on-automating-a-caffeine-workflow) - 14 jun 2025
 
 ---
 
@@ -92,7 +93,7 @@ List B:
 
 ### additional notes
 - this script also sets the Node.js version to the latest version as my machine defaults to using Node 12. this is probably due to a mismatch in $PATH but the temporary fix using `nvm use latest` works so i am sticking with that.
-
+- this init script runs [caffeineReminder.sh](./3-automatedcaffeine/caffeineReminder.sh), which is the one used for [automated caffeine](#3-attempt-on-automating-a-caffeine-workflow).
 
 
 ---
@@ -243,6 +244,150 @@ make
 sudo make install
 sudo modprobe v4l2loopback devices=1 exclusive_caps=1 card_label="OBS-VirtualCam"
 ```
+---
+
+
+# 3. Attempt on automating a Caffeine workflow
+
+TL;DR: My version of GNOME does not support it & I don't want to upgrade to Ubuntu 24.04 yet.
 
 ---
 
+## What and Why?
+
+While using my laptop to study, I often leave the laptop on a single screen for a long time as I solve the problems on paper. However, the laptop wants to turn on screensaver and go to sleep. I chanced upon [Caffeine](github.com/eonpatapon/gnome-shell-extension-caffeine), a GNOME extension by eonpatapon, which solved my problem by providing me with a button to toggle between keeping the screen on persistently and going to sleep after a while. (*I want that for all of my devices now...*)
+
+On some days, I keep forgetting to turn on caffeine when coming back to a suspended session (before you tell me, yes, I do know there is an option to persist across sessions but I do not want that behaviour). Hence, naturally as any lazy person would do, I set out to write a script to help with that.
+
+## The core concept
+
+1. The script would activate every time I start a desktop session.
+2. User would be asked if they wished to turn on Caffeine.
+3. If yes, turn on Caffeine.
+4. If no, Caffeine remains off. 
+
+Simple. Easily done with a few lines of bash script, right?
+
+## Part I: The Startup Prompt
+
+Since I have a fish init script set up, I can simply run the script when that init script runs. No issue.
+
+I explored [zenity](https://help.gnome.org/users/zenity/stable/) and its functionalities, and first tried using `notification`:
+
+```bash
+zenity --notification --text "Caffeine?"
+```
+
+But with zenity notifications there exist no way (as of now) to respond to that notification being clicked. Moreover, I am perpetually on Do Not Disturb mode, meaning I cannot see the notification on starting a session anyway.
+
+(You may be thinking "What about notify-send?" Well, it could not respond to the notification being clicked either. DND problem is still there as well)
+
+Let's try something else. Zenity has an `info` dialogue that I can use to run my Caffeine script after clicking "Ok":
+
+```bash
+if zenity --info --text "Caffeine?"; then
+  # run caffeine
+fi
+```
+
+But I wanted a way to opt out. No go.
+
+Then I tried `question`: 
+
+```bash
+if zenity --question --text="Caffeine?"; then
+    # yes
+    echo "Yes"
+else
+    # no
+    echo "No"
+fi
+```
+
+Wow! This is exactly what I had wanted. We are basically set.
+
+## Part II: One-Click Coffee Machine
+
+Now that we have that handy script to prompt us each time, let's figure out how to turn on caffeine in the command line!
+
+After having read through the Github README, I deduced Caffeine does not seem to support control through commands. I did not want to toggle the entire GNOME extension on and off either, as I still want the ability to turn on Caffeine later on in the session.
+
+I explored Caffeine's settings again, and found that it has a hotkey option. We might be able to emulate a keypress in the script to activate Caffeine!
+
+So I set the hotkey to `super` + `c`:
+
+![Caffeine Hotkey Settings](./3-automatedcaffeine/settings.png)
+
+Great! One step closer.
+
+## Part III: Wayland, Mutter and the Basket of Eggs
+
+Now let's find a way to emulate `super` + `c`.
+
+I know of [xdotool](https://github.com/jordansissel/xdotool), and wanted to use that to emulate my keypresses with something like this:
+
+```bash
+xdotool key super+c
+```
+
+However, **xdotool works for X11, not Wayland** (which I am comfortable with using, since Wayland is the default display server for my machine). I went on to look for alternatives for Wayland, and found [wtype](https://github.com/atx/wtype), [ydotool](https://github.com/ReimuNotMoe/ydotool), and [diowtype](https://github.com/DiogenesN/diowtype).
+
+### wtype & ydotool
+
+First let's try wtype. This was my idea:
+
+1. Press and hold `super`
+2. Press `c`
+3. Release `super`
+
+```bash
+wtype -M win -k c -m win
+```
+
+This returns:
+
+```
+Compositor does not support the virtual keyboard protocol
+```
+
+Oh boy. After [digging](https://github.com/atx/wtype/issues/22#issuecomment-1113273742) and being led to the Mutter (GNOME's core window manager and compositor) [forum](https://gitlab.gnome.org/GNOME/mutter/-/issues/1974), apparently GNOME does not support the `virtual-keyboard-unstable-v1` Wayland protocol needed for these to work due to security reasons. This means **wtype and ydotool will not work** on my machine.
+
+![Dev Discussion on Mutter](./3-automatedcaffeine/mutterforum.png)
+
+This forum also mentions **libei**, which sounds potentially promising. Let's set that aside for later use.
+
+### diowtype
+
+The thing about diowtype is despite the fact that it can indeed run on my machine, it only emulates one single keypress at a time, not combinations. Caffeine's settings do not accept single-keypress hotkeys, so I cannot use this either.
+
+### libei
+
+Then I looked into [libei](https://gitlab.freedesktop.org/libinput/libei/):
+
+![Summary of libei](./3-automatedcaffeine/libeisummary.png)
+
+In fact, Mutter had actually integrated libei in the newer versions!
+
+I was heartened until I realised **Mutter only supports libei from Ubuntu 24.04 onwards**, while I used my trusty 22.02 Jammy. 
+
+Darn... **I was not ready to upgrade my system so I had to call it a day.**
+
+To end this mildly disappointing section off, here is a section from [the creator's blog](https://who-t.blogspot.com/2020/08/libei-library-to-support-emulated-input.html) regarding libei:
+
+> What does all this have to do with eggs? "Ei", "Eis", "Brei", and "Reis" are, respectively, the German words for "egg", "ice" or "ice cream", "mush" (think: porridge) and "rice". There you go, now you can go on holidays to a German speaking country and sustain yourself on a nutritionally imbalanced diet. 
+
+
+
+## The product
+
+In the end, I settled with everything I had up to Part II. There would be a prompt at startup asking if I wanted to activate Caffeine, and if I selected Yes, it would prompt me to use my hotkey (`super` + `c`) to activate it. This would serve more as a reminder rather than automation process, but I will settle for this.
+
+### File
+[caffeineReminder.sh](./3-automatedcaffeine/caffeineReminder.sh)
+
+
+## Afterthoughts
+
+This was an interesting dive into an aspect that I have hardly come into contact to. It took two hours on a splendid Saturday morning that I could have spent studying.
+
+Upgrading to Ubuntu 24.04 and trying to fix broken dependencies last year has left a fowl taste in my mouth. Maybe in the near future, when I can wield Linux better, I will do so and finally get my daily morning fix of virtual Caffeine.
