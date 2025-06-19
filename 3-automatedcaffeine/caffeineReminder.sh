@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Coffee?"
 if zenity --question --text "Would you like to have a cup of coffee?"; then
     # yes

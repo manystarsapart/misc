@@ -53,6 +53,4 @@ function fish_greeting
     end
 end
 
-~/Documents/caffeineReminder.sh
-
 end

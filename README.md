@@ -93,7 +93,6 @@ List B:
 
 ### additional notes
 - this script also sets the Node.js version to the latest version as my machine defaults to using Node 12. this is probably due to a mismatch in $PATH but the temporary fix using `nvm use latest` works so i am sticking with that.
-- this init script runs [caffeineReminder.sh](./3-automatedcaffeine/caffeineReminder.sh), which is the one used for [automated caffeine](#3-attempt-on-automating-a-caffeine-workflow).
 
 
 ---
@@ -391,3 +390,45 @@ In the end, I settled with everything I had up to Part II. There would be a prom
 This was an interesting dive into an aspect that I have hardly come into contact to. It took two hours on a splendid Saturday morning that I could have spent studying.
 
 Upgrading to Ubuntu 24.04 and trying to fix broken dependencies last year has left a fowl taste in my mouth. Maybe in the near future, when I can wield Linux better, I will do so and finally get my daily morning fix of virtual Caffeine.
+
+
+## Update - 19 Jun 2025
+
+Putting this script inside the fish startup prompt, I realised, was not convenient at all. I had two problems:
+
+1. The script did not run on resuming a suspended session; and
+
+2. The script always ran whenever I started my terminal.
+
+Hence, I decided to look into startup prompts in order to truly give myself the experience I wanted. This time, I tried using an `autostart` desktop file for running the script on startup, as well as a user service to detect when the user logs back into a suspended session.
+
+### Autostart
+
+I created a file in `~/.config/autostart` named [caffeineReminder.desktop](./3-automatedcaffeine/caffeineReminder.desktop).
+
+I opted for `autostart` over putting the script inside `/etc/init.d/` or `update-rc.d` because this is, after all, a GUI prompt. I did not want to run it as root user as well.
+
+### Systemd User Service (Attempt 1)
+
+This part was slightly trickier. First, I made a [caffeine-on-resume.service](./3-automatedcaffeine/caffeine-on-resume.service) file and put it inside `~/.config/systemd/user`. 
+
+Then, the service needs to be enabled: 
+
+```bash
+systemctl --user enable caffeine-on-resume.service
+```
+
+This created the correct symlink and added my service as a dependency to a non-existent unit suspend.target.
+
+HOWEVER. I realised **this is not how it works**. Apparently, this runs the script when I suspend the session itself (I believe this was the case?), not when I resume. Thus I removed it.
+
+```bash
+systemctl --user stop caffeine-on-resume.service
+systemctl --user disable caffeine-on-resume.service
+```
+
+### Systemd User Service (Attempt 2)
+
+Let's try this again. Digging again, I found a wonderful [guide](https://ubuntuhandbook.org/index.php/2024/10/custom-actions-waking-sleep/) by Ubuntuhandbook on this subject. Unfortunately, this seems to be running the script as root and I am unsure how to make the prompt work on this one. 
+
+Maybe next time. For now, at least the startup script works.
