@@ -3,6 +3,7 @@
 1. [fish shell init script](#1-fish-shell-init-script) - 22 mar 2025
 2. [VTuber avatar on Ubuntu](#2-vtuber-avatar-on-ubuntu) - 27 apr 2025
 3. [Attempt on automating a Caffeine workflow](#3-attempt-on-automating-a-caffeine-workflow) - 14 jun 2025
+4. [Fish Shell Prompt](#4-fish-shell-prompt) - 17 aug 2025
 
 ---
 
@@ -11,10 +12,10 @@ my fish config file. a simple piece of initialiser code to make the terminal mor
 
 written for [fish shell](https://fishshell.com/).
 
-![Init Script Demo 1](./1-initscript/initScriptDemo1.png)
+![Init Script Demo Main](./1-initscript/initScriptDemoMain.png)
 
 ## files 
-[config.fish](1-initscript//config.fish)
+[config.fish](1-initscript/config.fish)
 
 ## features
 
@@ -22,8 +23,8 @@ written for [fish shell](https://fishshell.com/).
 
 each time the terminal is launched, or when user runs `fp`, the terminal outputs a randomised personalised greeting message (in chinese) from a curated list, with two parts:
 
-1. an original quote that may or may not be related to coding
-2. a welcomer message
+1. flavour text
+2. greeting message
 
 #### sample 1:
 
@@ -42,37 +43,8 @@ each time the terminal is launched, or when user runs `fp`, the terminal outputs
 
 the command `fg` can also be run to manually call a randomised greeting. additionally, use `fg -la` to list all available greetings in the greeting pool.
 
-```bash
- ~> fish_greeting -la
+edit 17/08/2025: there are now time-specific greetings. likewise, you may check the greeting pool for the current time of the day using `fg -la`.
 
-List A:
-  梦如人生 梦入长卷
-  星藏点雪 月隐晦明 拙山枯水大江行
-  雪落无声 内存不染
-  山棱崩摧处 正是重构时
-  云山万行 终归终端
-  旧城烟雨里 遗留系统眠
-  青铜鼎铭文 恰似注释生
-  浮生半日无bug
-  落花浮水 指针自流转
-  月照空潭 日志无涟漪
-
-List B:
-  开发者，舟已泊岸
-  开发者，可续前卷
-  子夜清寂，待启新程
-  开发者，请执刻刀
-  航图在此，请执罗盘
-  迷局终有解，请续前因
-  节点皆在线，共识待签
-  代码田园待耕耘
-  终端候君久矣
-  愿君今日有新枝
-  观测者模式就绪
-  开发者，可启新栈
-  沙盘已重置，请落子
-
-```
 
 ### other abbreviations & commands 
 
@@ -94,6 +66,14 @@ List B:
 ### additional notes
 - this script also sets the Node.js version to the latest version as my machine defaults to using Node 12. this is probably due to a mismatch in $PATH but the temporary fix using `nvm use latest` works so i am sticking with that.
 
+### additional demos
+
+(updated 17/08/2025)
+
+![Init Script Demo 1](./1-initscript/initScriptDemo1.png)
+![Init Script Demo 2](./1-initscript/initScriptDemo2.png)
+![Init Script Demo 3](./1-initscript/initScriptDemo3.png)
+![Init Script Demo 4](./1-initscript/initScriptDemo4.png)
 
 ---
 
@@ -432,3 +412,79 @@ systemctl --user disable caffeine-on-resume.service
 Let's try this again. Digging again, I found a wonderful [guide](https://ubuntuhandbook.org/index.php/2024/10/custom-actions-waking-sleep/) by Ubuntuhandbook on this subject. Unfortunately, this seems to be running the script as root and I am unsure how to make the prompt work on this one. 
 
 Maybe next time. For now, at least the startup script works.
+
+
+# 4. Fish Shell Prompt
+
+An attempt on further customising my terminal. Written for Fish, inspired by the inbuilt Informative style, but with some extra features.
+
+## Files
+
+[fish_prompt.fish](4-fishprompt/fish_prompt.fish)
+
+## Features
+
+### Information
+
+> Format: [Timestamp] ($USER) ($hostname) (directory path)
+
+- Changes colour if user is root.
+
+![Info Demo](4-fishprompt/info.png)
+
+
+### Execution Time
+
+> Shows time taken for a command to execute if more than 3s was used.
+
+![executionTimeDemo](4-fishprompt/execTimeDemo.png)
+
+### Directory Identification
+
+> Relays relevant information in the context line & changes the prompt symbols based on identified directories.
+
+- **Git**: Shows branch & current status.
+
+- **Node**: Shows node version.
+
+- **Python Venv**: Shows virtual environment name.
+
+- **Docker**: Shows docker context.
+
+![Git Demo](4-fishprompt/gitDemo.png)
+
+![Venv Demo](4-fishprompt/venvDemo.png)
+
+(Note that Git takes precedence over Venv for prompt symbol.)
+
+### Background Jobs
+
+> Shows background jobs (if any) taking place in the session.
+
+![Background Job Demo](4-fishprompt/bgJobDemo.png)
+
+### Disk Space
+
+> Alerts if disk space used exceeds 90%.
+
+(No demo. My disk space has yet to exceed 90%.)
+
+### No Write Perms
+
+> Alerts if user is in a directory that is read-only.
+
+![Read Only Demo](4-fishprompt/readOnlyDemo.png)
+
+### Directory Gradient
+
+> As depth of directories increases, colour of directory increasingly becomes more red. Additionally, directory name is shortened to its first letter for directories >5 depth up from the working directory.
+
+![Gradient Demo](4-fishprompt/gradientDemo.png)
+
+## Final Words
+
+This was a fun journey as I gradually learnt more about my machine. There are many more fun things that I can do, and I am thrilled to explore them when I have time. 
+
+I consulted Claude for some of the more technical aspects of status detection, which helped me immensely in overcome these hurdles. 
+
+That is all. Thank you for reading till the end of this project. See you in the next one soon.
