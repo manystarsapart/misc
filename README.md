@@ -49,6 +49,7 @@ edit 17/08/2025: there are now time-specific greetings. likewise, you may check 
 ### other abbreviations & commands 
 
 - `c` --> `clear`
+- `l` --> `ls -lha`
 - `fp` --> `fish --private` (launches fish in private mode)
 - `gad` --> `git add .`
 - `gc` --> `git commit -S -m "%"` where % becomes cursor location
