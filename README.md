@@ -235,7 +235,7 @@ TL;DR: My version of GNOME does not support it & I don't want to upgrade to Ubun
 
 ## What and Why?
 
-While using my laptop to study, I often leave the laptop on a single screen for a long time as I solve the problems on paper. However, the laptop wants to turn on screensaver and go to sleep. I chanced upon [Caffeine](github.com/eonpatapon/gnome-shell-extension-caffeine), a GNOME extension by eonpatapon, which solved my problem by providing me with a button to toggle between keeping the screen on persistently and going to sleep after a while. (*I want that for all of my devices now...*)
+While using my laptop to study, I often leave the laptop on a single screen for a long time as I solve the problems on paper. However, the laptop wants to turn on screensaver and go to sleep. I chanced upon [Caffeine](https://github.com/eonpatapon/gnome-shell-extension-caffeine), a GNOME extension by eonpatapon, which solved my problem by providing me with a button to toggle between keeping the screen on persistently and going to sleep after a while. (*I want that for all of my devices now...*)
 
 On some days, I keep forgetting to turn on caffeine when coming back to a suspended session (before you tell me, yes, I do know there is an option to persist across sessions but I do not want that behaviour). Hence, naturally as any lazy person would do, I set out to write a script to help with that.
 
