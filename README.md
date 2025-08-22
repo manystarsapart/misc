@@ -447,7 +447,7 @@ An attempt on further customising my terminal. Written for Fish, inspired by the
 
 > Shows time taken for a command to execute if more than 3s was used.
 
-![executionTimeDemo](4-fishprompt/execTimeDemo.png){width=50%}
+![executionTimeDemo](4-fishprompt/execTimeDemo.png)
 
 ### Directory Identification
 
@@ -461,9 +461,9 @@ An attempt on further customising my terminal. Written for Fish, inspired by the
 
 - **Docker**: Shows docker context.
 
-![Git Demo](4-fishprompt/gitDemo.png){width=50%}
+![Git Demo](4-fishprompt/gitDemo.png)
 
-![Venv Demo](4-fishprompt/venvDemo.png){width=50%}
+![Venv Demo](4-fishprompt/venvDemo.png)
 
 (Note that Git takes precedence over Venv for prompt symbol.)
 
@@ -471,7 +471,7 @@ An attempt on further customising my terminal. Written for Fish, inspired by the
 
 > Shows background jobs (if any) taking place in the session.
 
-![Background Job Demo](4-fishprompt/bgJobDemo.png){width=50%}
+![Background Job Demo](4-fishprompt/bgJobDemo.png)
 
 ### Disk Space
 
@@ -483,13 +483,13 @@ An attempt on further customising my terminal. Written for Fish, inspired by the
 
 > Alerts if user is in a directory that is read-only.
 
-![Read Only Demo](4-fishprompt/readOnlyDemo.png){width=50%}
+![Read Only Demo](4-fishprompt/readOnlyDemo.png)
 
 ### Directory Gradient
 
 > As depth of directories increases, colour of directory increasingly becomes more red. Additionally, directory name is shortened to its first letter for directories >5 depth up from the working directory.
 
-![Gradient Demo](4-fishprompt/gradientDemo.png){width=50%}
+![Gradient Demo](4-fishprompt/gradientDemo.png)
 
 ## Final Words
 
@@ -518,7 +518,7 @@ I should probably have searched up a guide and saved some effort during the firs
 3. This meant I needed an emulator that has **Google Apps**. and Vanilla did not cut it. Great.
 4. Let's Reinstall.
 
-![First Installation](5-arknightswaydroid/part1.png){width=45%}
+![First Installation](5-arknightswaydroid/part1.png)
 
 ### Part II: Google
 
@@ -528,9 +528,9 @@ I should probably have searched up a guide and saved some effort during the firs
 3. I found [an essential script](https://github.com/casualsnek/waydroid_script?tab=readme-ov-file) to install, but I tinkered around and Waydroid eventually stopped booting. Congratulations. </3.
 4. Let's Reinstall.
 
-![Second Installation Homescreen](5-arknightswaydroid/part2a.png){width=45%}
+![Second Installation Homescreen](5-arknightswaydroid/part2a.png)
 
-![Second Installation Playstore](5-arknightswaydroid/part2b.png){width=45%}
+![Second Installation Playstore](5-arknightswaydroid/part2b.png)
 
 <!-- let's see if github formats my md images properly. -->
 
@@ -542,7 +542,7 @@ I should probably have searched up a guide and saved some effort during the firs
 4. Installation done. I clicked the icon on the desktop. I boot to a black screen. Darn. Linux is full of surprises.
 5. Let's Reinstall.
 
-![Third Installation](5-arknightswaydroid/part3.png){width=45%}
+![Third Installation](5-arknightswaydroid/part3.png)
 
 ### Part IV: Hope?
 
@@ -554,7 +554,7 @@ I should probably have searched up a guide and saved some effort during the firs
 
 - worst case: apk
 
-![The Reddit Thread](5-arknightswaydroid/part4.png){width=45%}
+![The Reddit Thread](5-arknightswaydroid/part4.png)
 
 #### Preliminary Verdict
 
@@ -568,8 +568,8 @@ Presently it is getting late. I will call it a night for now, and hope the debug
 2. The apk I used to install the app is 100mb in size while the xapk on the same website is 1gb. I tried the xapk using `sudo app install Downloads/(xapk file)` but the app did not install at all. Guess xapk does not work.
 3. Next, using the apk itself, the app installed. Woo! Let's open it.
 
-![Fourth Installation 1](5-arknightswaydroid/part5a.png){width=45%}
-![Fourth Installation 2](5-arknightswaydroid/part5b.png){width=45%}
+![Fourth Installation 1](5-arknightswaydroid/part5a.png)
+![Fourth Installation 2](5-arknightswaydroid/part5b.png)
 
 ### Part VI: 
 
