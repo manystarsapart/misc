@@ -4,6 +4,7 @@
 2. [VTuber avatar on Ubuntu](#2-vtuber-avatar-on-ubuntu) - 27 apr 2025
 3. [Attempt on automating a Caffeine workflow](#3-attempt-on-automating-a-caffeine-workflow) - 14 jun 2025
 4. [Fish Shell Prompt](#4-fish-shell-prompt) - 17 aug 2025
+5. [Arknights on Waydroid](#5-arknights-on-waydroid) - 17 aug 2025
 
 ---
 
@@ -242,7 +243,7 @@ On some days, I keep forgetting to turn on caffeine when coming back to a suspen
 ## The core concept
 
 1. The script would activate every time I start a desktop session.
-2. User would be asked if they wished to turn on Caffeine.
+2. The script would ask me if I wished to turn on Caffeine.
 3. If yes, turn on Caffeine.
 4. If no, Caffeine remains off. 
 
@@ -250,7 +251,7 @@ Simple. Easily done with a few lines of bash script, right?
 
 ## Part I: The Startup Prompt
 
-Since I have a fish init script set up, I can simply run the script when that init script runs. No issue.
+Since I already have a [fish init script](#1-fish-shell-init-script) set up, I can simply run the script when that init script runs. No issue.
 
 I explored [zenity](https://help.gnome.org/users/zenity/stable/) and its functionalities, and first tried using `notification`:
 
@@ -290,7 +291,7 @@ Wow! This is exactly what I had wanted. We are basically set.
 
 Now that we have that handy script to prompt us each time, let's figure out how to turn on caffeine in the command line!
 
-After having read through the Github README, I deduced Caffeine does not seem to support control through commands. I did not want to toggle the entire GNOME extension on and off either, as I still want the ability to turn on Caffeine later on in the session.
+After having read through the Github README, I deduced Caffeine does not seem to support control through commands. I did not want to toggle the entire GNOME extension on and off either, as I still wanted the ability to turn on Caffeine later on in the session.
 
 I explored Caffeine's settings again, and found that it has a hotkey option. We might be able to emulate a keypress in the script to activate Caffeine!
 
@@ -352,7 +353,7 @@ I was heartened until I realised **Mutter only supports libei from Ubuntu 24.04 
 
 Darn... **I was not ready to upgrade my system so I had to call it a day.**
 
-To end this mildly disappointing section off, here is a section from [the creator's blog](https://who-t.blogspot.com/2020/08/libei-library-to-support-emulated-input.html) regarding libei:
+To end this mildly disappointing section off on a slightly more lighthearted note, here is a section from [the creator's blog](https://who-t.blogspot.com/2020/08/libei-library-to-support-emulated-input.html) regarding libei:
 
 > What does all this have to do with eggs? "Ei", "Eis", "Brei", and "Reis" are, respectively, the German words for "egg", "ice" or "ice cream", "mush" (think: porridge) and "rice". There you go, now you can go on holidays to a German speaking country and sustain yourself on a nutritionally imbalanced diet. 
 
@@ -414,6 +415,14 @@ Let's try this again. Digging again, I found a wonderful [guide](https://ubuntuh
 
 Maybe next time. For now, at least the startup script works.
 
+#### Files
+[caffeineReminder.sh](./3-automatedcaffeine/caffeineReminder.sh)
+
+[caffeineReminder.desktop](./3-automatedcaffeine/caffeineReminder.desktop)
+
+[caffeine-on-resume.service](./3-automatedcaffeine/caffeine-on-resume.service)
+
+
 
 # 4. Fish Shell Prompt
 
@@ -438,7 +447,7 @@ An attempt on further customising my terminal. Written for Fish, inspired by the
 
 > Shows time taken for a command to execute if more than 3s was used.
 
-![executionTimeDemo](4-fishprompt/execTimeDemo.png)
+![executionTimeDemo](4-fishprompt/execTimeDemo.png){width=50%}
 
 ### Directory Identification
 
@@ -452,9 +461,9 @@ An attempt on further customising my terminal. Written for Fish, inspired by the
 
 - **Docker**: Shows docker context.
 
-![Git Demo](4-fishprompt/gitDemo.png)
+![Git Demo](4-fishprompt/gitDemo.png){width=50%}
 
-![Venv Demo](4-fishprompt/venvDemo.png)
+![Venv Demo](4-fishprompt/venvDemo.png){width=50%}
 
 (Note that Git takes precedence over Venv for prompt symbol.)
 
@@ -462,7 +471,7 @@ An attempt on further customising my terminal. Written for Fish, inspired by the
 
 > Shows background jobs (if any) taking place in the session.
 
-![Background Job Demo](4-fishprompt/bgJobDemo.png)
+![Background Job Demo](4-fishprompt/bgJobDemo.png){width=50%}
 
 ### Disk Space
 
@@ -474,13 +483,13 @@ An attempt on further customising my terminal. Written for Fish, inspired by the
 
 > Alerts if user is in a directory that is read-only.
 
-![Read Only Demo](4-fishprompt/readOnlyDemo.png)
+![Read Only Demo](4-fishprompt/readOnlyDemo.png){width=50%}
 
 ### Directory Gradient
 
 > As depth of directories increases, colour of directory increasingly becomes more red. Additionally, directory name is shortened to its first letter for directories >5 depth up from the working directory.
 
-![Gradient Demo](4-fishprompt/gradientDemo.png)
+![Gradient Demo](4-fishprompt/gradientDemo.png){width=50%}
 
 ## Final Words
 
@@ -489,3 +498,80 @@ This was a fun journey as I gradually learnt more about my machine. There are ma
 I consulted Claude for some of the more technical aspects of status detection, which helped me immensely in overcome these hurdles. 
 
 That is all. Thank you for reading till the end of this project. See you in the next one soon.
+
+# 5. Arknights on Waydroid
+
+## Preface
+
+I came across a [Waydroid](https://waydro.id/) demonstration video on Bilibili. It piqued enough of my curiosity to get me tinkering, so here is my journey.
+
+I should probably have searched up a guide and saved some effort during the first few reinstallations though.
+
+## The Process
+
+> [*転生Waydroid。*](https://youtu.be/SvK3cTWDeRE)
+
+### Part I: First Contact
+
+1. I installed Waydroid from the official website.
+2. I initialised Waydroid using **Vanilla** at first, but realised that in order to get Arknights from Google Play Store, I needed a **Google Play Store**.
+3. This meant I needed an emulator that has **Google Apps**. and Vanilla did not cut it. Great.
+4. Let's Reinstall.
+
+![First Installation](5-arknightswaydroid/part1.png){width=45%}
+
+### Part II: Google
+
+1. Google Apps acquired! Now we boot into Waydroid!
+2. Waydroid's documentation states we need to get this emulated device [certified by Google](https://docs.waydro.id/faq/google-play-certification) before we can do anything. This took around 20 minutes on Google's side.
+2. Now let's head to the Play Store and download Ark... Oh. "Your device isn't compatible with this version."
+3. I found [an essential script](https://github.com/casualsnek/waydroid_script?tab=readme-ov-file) to install, but I tinkered around and Waydroid eventually stopped booting. Congratulations. </3.
+4. Let's Reinstall.
+
+![Second Installation Homescreen](5-arknightswaydroid/part2a.png){width=45%}
+
+![Second Installation Playstore](5-arknightswaydroid/part2b.png){width=45%}
+
+<!-- let's see if github formats my md images properly. -->
+
+### Part III: Escapologist
+
+1. Now that I have installed again from the official source, I made sure to also clone the Waydroid Script directory and install libhoudini through the CLI installation.
+2. The reason why libhoudini is needed is that Arknights is compiled to run on the `ARM` architecture. This means I cannot directly run Arknights on my `x86` laptop. There needs to be an ARM translation library in place, and what works best for Intel is apparently **libhoudini**.
+3. Finally! After having downloaded libhoudini (and removing the nodataperm hack which caused black screens), I could download Arknights.
+4. Installation done. I clicked the icon on the desktop. I boot to a black screen. Darn. Linux is full of surprises.
+5. Let's Reinstall.
+
+![Third Installation](5-arknightswaydroid/part3.png){width=45%}
+
+### Part IV: Hope?
+
+- Let's keep trying. This should be the right way to go, but I have not yet figured out what is stumping me. Some reference for future me:
+
+- https://www.reddit.com/r/waydroid/comments/x988mk/installing_both_libhoudini_and_libdnk/
+- https://blog.etineres.fr/posts/how-to-play-arknights-on-fedora-41-with-waydroid/
+- https://blog.sww.moe/post/waydroid-arknights/
+
+- worst case: apk
+
+![The Reddit Thread](5-arknightswaydroid/part4.png){width=45%}
+
+#### Preliminary Verdict
+
+There has to be some way with which I can install and run Arknights smoothly on Waydroid. I will try some other methods in time to come. This war is not over until it is over. 
+
+Presently it is getting late. I will call it a night for now, and hope the debugging solution comes to me in a dream.
+
+### Part V: Resources
+
+1. It has been a few days. I decided to try the `Vanilla` version of Waydroid & go the APK route. Let's see.
+2. The apk I used to install the app is 100mb in size while the xapk on the same website is 1gb. I tried the xapk using `sudo app install Downloads/(xapk file)` but the app did not install at all. Guess xapk does not work.
+3. Next, using the apk itself, the app installed. Woo! Let's open it.
+
+![Fourth Installation 1](5-arknightswaydroid/part5a.png){width=45%}
+![Fourth Installation 2](5-arknightswaydroid/part5b.png){width=45%}
+
+### Part VI: 
+
+TBC
+
