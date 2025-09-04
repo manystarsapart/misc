@@ -5,6 +5,7 @@
 3. [Attempt on automating a Caffeine workflow](#3-attempt-on-automating-a-caffeine-workflow) - 14 jun 2025
 4. [Fish Shell Prompt](#4-fish-shell-prompt) - 17 aug 2025
 5. [Arknights on Waydroid](#5-arknights-on-waydroid) - 17 aug 2025
+6. [Revitalising My Old Macbook with Linux](#6-revitalising-my-old-macbook-with-linux) - 3 sep 2025
 
 ---
 
@@ -152,7 +153,7 @@ This aims to serve as a guide and document my endeavor in figuring out how to re
 #### Configuring Bottles & VSeeFace
 
 - Set up Bottles
-- Create a application named `VSeeFace` and click into it
+- Create an application named `VSeeFace` and click into it
 - In the top right dropdown, select `Browse Files...` to open the C drive folder
 - Extract everything from the VSeeFace ZIP archive into `Program Files` of the C drive
 - Under `Programs`, click `Add Shortcuts` and find `VSeeFace.exe` from the extracted folder
@@ -361,7 +362,7 @@ To end this mildly disappointing section off on a slightly more lighthearted not
 
 ## The product
 
-In the end, I settled with everything I had up to Part II. There would be a prompt at startup asking if I wanted to activate Caffeine, and if I selected Yes, it would prompt me to use my hotkey (`super` + `c`) to activate it. This would serve more as a reminder rather than automation process, but I will settle for this.
+In the end, I settled with everything I had up to Part II. There would be a prompt at startup asking if I wanted to activate Caffeine, and if I selected Yes, it would prompt me to use my hotkey (`super` + `c`) to activate it. This would serve more as a reminder rather than an automation process, but I will settle for this.
 
 ### File
 [caffeineReminder.sh](./3-automatedcaffeine/caffeineReminder.sh)
@@ -369,7 +370,7 @@ In the end, I settled with everything I had up to Part II. There would be a prom
 
 ## Afterthoughts
 
-This was an interesting dive into an aspect that I have hardly come into contact to. It took two hours on a splendid Saturday morning that I could have spent studying.
+This was an interesting dive into an aspect that I have hardly come into contact with. It took two hours on a splendid Saturday morning that I could have spent studying.
 
 Upgrading to Ubuntu 24.04 and trying to fix broken dependencies last year has left a fowl taste in my mouth. Maybe in the near future, when I can wield Linux better, I will do so and finally get my daily morning fix of virtual Caffeine.
 
@@ -465,7 +466,7 @@ An attempt on further customising my terminal. Written for Fish, inspired by the
 
 ![Venv Demo](4-fishprompt/venvDemo.png)
 
-(Note that Git takes precedence over Venv for prompt symbol.)
+(Note that Git takes precedence over Venv for prompt symbols.)
 
 ### Background Jobs
 
@@ -495,7 +496,7 @@ An attempt on further customising my terminal. Written for Fish, inspired by the
 
 This was a fun journey as I gradually learnt more about my machine. There are many more fun things that I can do, and I am thrilled to explore them when I have time. 
 
-I consulted Claude for some of the more technical aspects of status detection, which helped me immensely in overcome these hurdles. 
+I consulted Claude for some of the more technical aspects of status detection, which helped me immensely in overcoming these hurdles. 
 
 That is all. Thank you for reading till the end of this project. See you in the next one soon.
 
@@ -575,3 +576,152 @@ Presently it is getting late. I will call it a night for now, and hope the debug
 
 TBC
 
+
+# 6. Revitalising My Old Macbook with Linux
+
+## Preface
+
+I have an old Macbook Air. I cannot remember when I had acquired it, but it runs on OS X 10.9.5 (13F1911). This machine is an 11-inch, early 2014 model and I have been using it for over ten years. It has even been bootcamped and also dualboots a Windows 7 system. Talk about retro.
+
+![Macbook Specs](6-oldmacbook/img/specs.png)
+
+Unfortunately, the battery has been degraded through the years of usage, meaning the machine can only be booted up if it is connected to the AC power source (at *just* the right angle, by the way - if the wire were to be twisted in any other way, the machine just stops). Furthermore, the native OS X is very outdated and supports virtually no modern app. The Windows 7 system can still run a bunch of things surprisingly well, but its limit is Minecraft 1.16, as it struggles to render anything but distorted polygons on 1.17 when I tested it with my buddies.
+
+Enough said. Let's try to revitalise this good old friend of mine.
+
+## Part I: Arch?
+
+Originally, I had wanted to use Arch Linux and subsequently get the I-use-Arch-btw pass. However, I thought twice:
+
+![Telegram Monologue](6-oldmacbook/img/backtrack.png)
+
+The concern mostly lies in the rolling release aspect. I would love to not have to fix everything everywhere all at once, so maybe Arch next time.
+
+## Part II: Not Entirely Cherry
+
+From browsing online forums, I learnt of [MX Linux](https://mxlinux.org/) (I'm always locked out of their website for some reason though). Its Debian base coupled with its popularity among the old-computer-linux community appealed greatly to me and I was sold instantly. 
+
+I checked to see if my old Macbook could run MX Linux, and chanced upon [Action Retro's video, in which he installed MX Linux on a Macbook Air that is as old as my own](https://youtu.be/E6bTVKXGfE0). If he could do it, I can do it.
+
+I downloaded MX Linux's `.iso` file for Live USB (Version MX 23.6 "Libretto") from [Sourceforge](https://sourceforge.net/projects/mx-linux/), then etched it to one of my few remaining USB sticks using [balenaEtcher](https://github.com/balena-io/etcher) since I had no access to Rufus on my Ubuntu system. Initially, I was worried about whether my 4GB USB stick could be used, but the `.iso` file turned out to only be 2GB. Talk about lightweight distros.
+
+Do note that apparently you need to install firmware updates and set the volume on your OS X to an acceptable volume (or mute) first before wiping it out entirely. Installing firmware updates was not really an option for me as there were few updates compatible with my computer remaining on the App Store. The volume carries through to determine the volume setting for the booting chime of your new system, so I adjusted it to around 50%.
+
+## Part III: Installation & Partitioning
+
+The Live USB successfully booted, and took a surprisingly short time to boot up MX Linux from the USB for my ancient machine.  
+
+![MX Installation Screen](6-oldmacbook/img/MXinstall.png)
+
+However, life is full of surprises; this time it is not a pleasant one. The MX Linux system apparently cannot detect my SSD at all, as observed from the `Regular install using the entire disk` option being greyed out in the Partition page. 
+
+Using `sudo fdisk -l` only shows `sda1` and `sda2`, and both of them are the boot USB itself. I even booted to Ubuntu 24's live USB to check if it was the MX Linux system's issue. No luck either.
+
+
+
+This seemed really concerning from a quick search online, as [one of the antiX forum users](https://www.antixforum.com/forums/topic/regular-install-using-the-entire-disk-is-grayed-out/) seemed to need to factory reset the entire computer and mess with BIOS settings and also remove Windows in order to fix it. I knew how to do none of these procedures.
+
+Thankfully, after further digging, I chanced upon an [AskUbuntu forum post](https://askubuntu.com/questions/1212573/ubuntu-installer-wont-recognize-my-ssd-on-macbook-air) that deals with a Macbook Air instead. The previous forum post had been about a Lenovo Ideapad which had a different problem. For my issue, I simply had to add `intel_iommu=off` in the live CD kernel options, which was a much simpler procedure.
+
+![antiX forum](6-oldmacbook/img/antiXforum.png)
+
+![AskUbuntu forum](6-oldmacbook/img/askubuntu.png)
+
+![The Solution](6-oldmacbook/img/iommusolution.png)
+
+## Part IV: IOSYS + REIMU = IOMMU
+
+I followed the instructions and added the aforementioned option. For those interested, here's the procedure:
+
+1. Boot to the GRUB screen and press arrow keys to highlight the GRUB entry to edit.
+
+2. Press `e`, which should bring you to the kernel options (some systems may require pressing tab / space before that first? `e` just works for me though).
+
+3. Using arrow keys to navigate, move the cursor down to the `linux` row. Add `intel_iommu=off` at the back.
+
+4. Press `ctrl` + `x` OR `F10` to boot using these options.
+
+The machine booted up, and with bated breath I started the MX Linux installation process. The procedure had worked! I used 28GB (25%) for Root and the remaining 85GB (75%) for Home. There was more room than I had envisioned as I was used to having only effectively 30GB per system on that machine due to the dualboot settings.
+
+![Partitioning Screen](6-oldmacbook/img/partitioning.png)
+
+![Confirmation for Installation](6-oldmacbook/img/confirmation.png)
+
+## Part V: OLD AGE OLD AGE OLD AGE 
+
+Old is not always gold. Once I got past the previous screens, I was hit with yet another error, this time quite concerning:
+
+  ```
+  The disks with the partitions you selected for installation pass the
+  SMART monitor test (smartctl), but the tests indicate it will have a
+  higher than average failure rate in the near future.If unsure, 
+  please exit the Installer and run GSmartControl for more 
+  information.
+  Do you want to continue?
+  ```
+
+Opening GSmartControl to check, it seems like my SSD has gone through its fair share of wear and tear (my Power_On_Hours is 6958... that averages to **around 2 hours of screen time every single day for ten years**! Gee...). I aborted the operation because the warning sounded quite frightening – `Reallocated Sector Count` was 1, meaning one bad sector has been found and remapped. The overall health seemed fine from [the report](6-oldmacbook/APPLE_SSD_TS0128F_74RS120ZT8VW_2025-09-02_1345.txt) though, so I proceeded to install MX Linux again after some consideration.
+
+![Smartmon Warning](6-oldmacbook/img/smartmonwarning.png)
+
+![GSmartControl General Info](6-oldmacbook/img/gsmartcontrol1.png)
+
+![GSmartControl Details](6-oldmacbook/img/gsmartcontrol2.png)
+
+![Abortion of Installation](6-oldmacbook/img/abortion.png)
+
+![alt text](6-oldmacbook/img/rawdegradation.png)
+
+> "Osmanthus wine tastes the same as I remember."
+
+## Part VI: Installation
+
+Let's install MX Linux for real!  
+
+![Installation 11%](6-oldmacbook/img/install11.png)
+
+![Installation 97%](6-oldmacbook/img/install97.png)
+
+![Installation 100%](6-oldmacbook/img/installdone.png)
+
+## Part VII: Making the System Mine
+
+By mine I mean my own. Not mine BitCoin.
+
+Now that MX Linux has been properly installed, I decided to follow the footsteps of (probably) every Linux user. Here are some things that I did to customise this machine, partly referencing [FOSSLinux](https://www.fosslinux.com/67840/mx-linux-review.htm):
+
+1. Increase font size (to 11) (`settings > appearance`)
+2. Set theme (`settings > appearance`)
+3. Wallpaper & splash screen (`settings > desktop`)
+4. Install [Caffeine](https://linuxmasterclub.com/caffeine/) 
+5. Add items to panel in items menu & Customise the panel to look like the Ubuntu one I'm used to
+6. Fix potential screen tearing (`mx tools > tweak > compositor > vblank: xpresent`)
+7. Enable double click (`mx tools > tweak > config options > disable single click for both desktop & thunar`)
+8. Customise the desktop clock widget (`mx tools > conky`)
+9. Make booting to mxlinux 3s (`mx tools > boot options`)
+10. Enable antiX adblock
+11. Enable default firewall options
+12. Install Fish shell & use my [fish config script](#1-fish-shell-init-script) (greatly cut down)
+13. Install Spotify
+
+Voila!
+
+!["God Forbid I spend the next four hours ricing"](6-oldmacbook/img/rice.png)
+
+![After the Customisations](6-oldmacbook/img/postrice.jpeg)
+
+> Art source seems to be [阳_伞](https://space.bilibili.com/8522878) according to a video, but I cannot tell for sure.
+
+## Future Improvements & Final Words
+
+The machine is still quite bare even after all the customisations, and I believe I will come to make many more modifications to it as I daily (or rather nightly) drive it. One day, I may get an SSD that is not starting to corrupt and transfer everything out (apparently the erosion snowballs), but that is only after I replace the battery as well. Let's not get ahead of ourselves here – this Macbook's power is still on life support. Here are some things on the future roadmap:
+
+- REPLACE THE BATTERY
+- REPLACE THE SSD
+- Chinese Pinyin using Fcitx (subsequently, FlyPY / Xiaohe Shuangpin)
+- Automation scripts?
+- Power management with TLP
+
+The computer is now capable of everyday tasks such as document editing and basic entertainment with Youtube and Bilibili, not to mention these are being done at lightning-fast speeds thanks to the XFCE desktop environment. The only pity is that there is only 4GB of memory, which is SOLDERED onto the logic board. Nonetheless, I am quite content with how this installation has turned out, and although I get somewhat sentimental thinking about the now-wiped Windows 7 system that has spent ten years with me, this breathing of new air into the Macbook Air (haha... get it...) is sure to bring us to new heights.
+
+> Arch next time, btw.
