@@ -585,7 +585,7 @@ I have an old Macbook Air. I cannot remember when I had acquired it, but it runs
 
 ![Macbook Specs](6-oldmacbook/img/specs.png)
 
-Unfortunately, the battery has been degraded through the years of usage, meaning the machine can only be booted up if it is connected to the AC power source (at *just* the right angle, by the way - if the wire were to be twisted in any other way, the machine just stops). Furthermore, the native OS X is very outdated and supports virtually no modern app. The Windows 7 system can still run a bunch of things surprisingly well, but its limit is Minecraft 1.16, as it struggles to render anything but distorted polygons on 1.17 when I tested it with my buddies.
+Unfortunately, the battery has been degraded through the years of usage, meaning the machine can only be booted up if it is connected to the AC power source (at *just* the right angle, by the way – if the wire were to be twisted in any other way, the machine just stops). Furthermore, the native OS X is very outdated and supports virtually no modern app. The Windows 7 system can still run a bunch of things surprisingly well, but its limit is Minecraft 1.16, as it struggles to render anything but distorted polygons on 1.17 when I tested it with my buddies.
 
 Enough said. Let's try to revitalise this good old friend of mine.
 
