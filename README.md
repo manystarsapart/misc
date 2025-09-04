@@ -28,18 +28,7 @@ each time the terminal is launched, or when user runs `fp`, the terminal outputs
 1. flavour text
 2. greeting message
 
-#### sample 1:
-
-```
-云山万行 终归终端
-          —— 开发者，请执刻刀
-```
-#### sample 2:
-
-```
-星藏点雪 月隐晦明 拙山枯水大江行
-          —— 终端候君久矣
-```
+See examples [here](#additional-demos).
 
 ### manual call
 
@@ -607,7 +596,7 @@ I downloaded MX Linux's `.iso` file for Live USB (Version MX 23.6 "Libretto") fr
 
 Do note that apparently you need to install firmware updates and set the volume on your OS X to an acceptable volume (or mute) first before wiping it out entirely. Installing firmware updates was not really an option for me as there were few updates compatible with my computer remaining on the App Store. The volume carries through to determine the volume setting for the booting chime of your new system, so I adjusted it to around 50%.
 
-## Part III: Installation & Partitioning
+## Part III: Partitioning
 
 The Live USB successfully booted, and took a surprisingly short time to boot up MX Linux from the USB for my ancient machine.  
 
