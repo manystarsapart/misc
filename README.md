@@ -5,7 +5,7 @@
 3. [Attempt on automating a Caffeine workflow](#3-attempt-on-automating-a-caffeine-workflow) - 14 jun 2025
 4. [Fish Shell Prompt](#4-fish-shell-prompt) - 17 aug 2025
 5. [Arknights on Waydroid](#5-arknights-on-waydroid) - 17 aug 2025
-6. [Revitalising My Old Macbook with Linux](#6-revitalising-my-old-macbook-with-linux) - 3 sep 2025
+6. [Revitalising my old Macbook with Linux](#6-revitalising-my-old-macbook-with-linux) - 3 sep 2025
 
 ---
 
@@ -577,7 +577,7 @@ Presently it is getting late. I will call it a night for now, and hope the debug
 TBC
 
 
-# 6. Revitalising My Old Macbook with Linux
+# 6. Revitalising my old Macbook with Linux
 
 ## Preface
 
