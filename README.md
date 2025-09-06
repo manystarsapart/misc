@@ -701,6 +701,64 @@ Voila!
 
 > Art source seems to be [阳_伞](https://space.bilibili.com/8522878) according to a video, but I cannot tell for sure.
 
+## Part VIII: Webcam
+
+Added 07/09/2025.
+
+Today I entered a video call and realised the webcam could not be detected. Worry not, though, for I found the exact post (or rather string of posts) to solve my issue. It led me to a [script](https://gist.github.com/ukn/a2f85e3420ae7d0f64db2274a9bc106b) on Github that seems to work, so I tried it.
+
+![Install Webcam Script](6-oldmacbook/img/installwebcamscript.png)
+
+Here's what I did:
+
+```bash
+nano installwebcam.sh
+# (pastes the script in)
+
+sudo chmod +x ./installwebcam.sh
+sudo ./installwebcam.sh
+```
+
+Unfortunately, I ran into some issues when I ran this script. An error popped up, saying:
+
+> install: cannot change permissions of ‘//usr/lib/firmware/facetimehd’: No such file or directory
+
+Sounds like an easy fix. I just made the directory and ran the script again:
+
+```bash
+sudo mkdir -p /usr/lib/firmware/facetimehd
+sudo ./installwebcam.sh
+```
+
+Okay. This time it worked, albeit with some errors still:
+
+> Warning: modules_install: missing 'System.map' file. Skipping depmod.
+> modprobe: FATAL: Module bdc_pci not found.
+
+These should be harmless as I do not have bdc_pci in my system anyway. For the depmod, I ran it manually:
+
+```bash
+sudo depmod -a
+```
+
+Now all that's left for us to do is to load the driver manually:
+
+```bash
+sudo modprobe facetimehd
+dmesg | grep facetimehd
+
+# and now to see if the driver is actually loaded:
+v4l2-ctl --list-devices
+```
+
+![dmesg Information](6-oldmacbook/img/dmesgwebcam.jpg)
+
+You can see that the webcam is indeed loaded. Wonderful!
+
+Here's how it looks like. The other folks even say that this 720p camera appears clearer than that of my daily drive machine. I don't know what to think of that but guess Apple really was in its prime.
+
+![Webcam Demo](6-oldmacbook/img/webcamdemo.png)
+
 ## Future Improvements & Final Words
 
 The machine is still quite bare even after all the customisations, and I believe I will come to make many more modifications to it as I daily (or rather nightly) drive it. One day, I may get an SSD that is not starting to corrupt and transfer everything out (apparently the erosion snowballs), but that is only after I replace the battery as well. Let's not get ahead of ourselves here – this Macbook's power is still on life support. Here are some things on the future roadmap:
