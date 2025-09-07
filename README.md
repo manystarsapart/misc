@@ -733,6 +733,7 @@ sudo ./installwebcam.sh
 Okay. This time it worked, albeit with some errors still:
 
 > Warning: modules_install: missing 'System.map' file. Skipping depmod.
+
 > modprobe: FATAL: Module bdc_pci not found.
 
 These should be harmless as I do not have bdc_pci in my system anyway. For the depmod, I ran it manually:
@@ -758,6 +759,8 @@ You can see that the webcam is indeed loaded. Wonderful!
 Here's how it looks like. The other folks even say that this 720p camera appears clearer than that of my daily drive machine. I don't know what to think of that but guess Apple really was in its prime.
 
 ![Webcam Demo](6-oldmacbook/img/webcamdemo.png)
+
+
 
 ## Future Improvements & Final Words
 
