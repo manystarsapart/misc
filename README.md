@@ -760,6 +760,115 @@ Here's how it looks like. The other folks even say that this 720p camera appears
 
 ![Webcam Demo](6-oldmacbook/img/webcamdemo.png)
 
+## Part IX: (Re)Webcam
+
+Added 10/09/2025.
+
+I upgraded my kernel from `6.1.0-38` to `6.1.0-39`. Guess what: the `facetimehd` module did not get carried over. Found this out when I tried to enter a video meeting but video camera did not get detected again. Let's fix this.
+
+First I had to make sure the video camera was still working in the first place, lest anything broke in the few days for which I was gone. Let's rebuild this module according to the original script first. 
+
+```bash
+cd /tmp
+git clone https://github.com/patjak/bcwc_pcie.git
+cd bcwc_pcie/firmware
+ls -lha
+```
+
+There was no make file! Following the original script, the next step was to `make` here. But there was only a `README` that reads:
+
+> The firmware extraction tool is moved to a separate directory at: 
+> https://github.com/patjak/facetimehd-firmware
+
+I think if my original script had failed to build this particular firmware extractor, it means I already had the necessary firmware. Let's move on then. LOL
+
+```bash
+cd ..
+make
+sudo make install
+```
+```
+make -C /lib/modules/6.1.0-39-amd64/build M=/tmp/bcwc_pcie modules_install
+make[1]: Entering directory '/usr/src/linux-headers-6.1.0-39-amd64'
+  INSTALL /lib/modules/6.1.0-39-amd64/extra/facetimehd.ko
+  SIGN    /lib/modules/6.1.0-39-amd64/extra/facetimehd.ko
+At main.c:171:
+- SSL error:FFFFFFFF80000002:system library::No such file or directory: ../crypto/bio/bss_file.c:67
+- SSL error:10000080:BIO routines::no such file: ../crypto/bio/bss_file.c:75
+sign-file: /usr/src/linux-headers-6.1.0-39-common/output/signing_key.pem
+  DEPMOD  /lib/modules/6.1.0-39-amd64
+Warning: modules_install: missing 'System.map' file. Skipping depmod.
+make[1]: Leaving directory '/usr/src/linux-headers-6.1.0-39-amd64'
+```
+
+SSL sign-file warnings seem harmless so I will not care about them. And depmod skipped again. Same fix.
+
+```bash
+sudo depmod -a
+sudo modprobe facetimehd
+v4l2-ctl --list-devices
+```
+
+```
+Apple Facetime HD (PCI:0000:02:00.0):
+      /dev/video0
+```
+
+Great!
+
+Now I have to ensure I dont have to rebuild it every time I upgrade kernel in the future. Hello DKMS!
+
+```bash
+sudo apt update
+sudo apt install dkms
+sudo mkdir -p /usr/src/facetimehd-0.6.13
+sudo cp -r /tmp/bcwc_pcie/* /usr/src/facetimehd-0.6.13/
+sudo dkms add -m facetimehd -v 0.6.13
+sudo nano /usr/src/facetimehd-0.6.13/dkms.conf
+```
+
+And overwrite the deprecated feature of `MODULES_CONF` that previously in the git repository:
+
+```conf
+PACKAGE_NAME="facetimehd"
+PACKAGE_VERSION="0.6.13"
+CLEAN="make clean"
+MAKE[0]="make KERNELDIR=/lib/modules/${kernelver}/build"
+BUILT_MODULE_NAME[0]="facetimehd"
+BUILT_MODULE_LOCATION[0]="."
+DEST_MODULE_LOCATION[0]="/updates/dkms"
+AUTOINSTALL="yes"
+```
+Then adding it to DKMS should do the job:
+
+```bash
+sudo dkms add -m facetimehd -v 0.6.13
+sudo dkms build -m facetimehd -v 0.6.13
+sudo dkms install -m facetimehd -v 0.6.13
+```
+
+This should fix it for future kernel versions. Hopefully.
+
+
+## Part X: Chinese & 小鹤双拼
+
+Added 10/09/2025.
+
+This part was surprisingly easy. First I installed `fcitx5`. Then I configured `fcitx5`. Then I went to `Fcitx Configuration > Addons > Classic User Interface > Font` to increase the font size because it was really small. There we go, Chinese!
+
+P.S. I use Xiaohe Double Pinyin, btw. Configuring the ipnut methods for that is really simple, actually:
+
+1. Add a group.
+2. Add the Shuangpin input method from the right column by double clicking `Shuangpin` after finding it through search.
+3. Click Shuangpin on the left column to select it.
+4. Press the Settings icon in the middle
+5. Switch `Shuangpin Profile` to `Xiaohe`.
+
+Finally I can type Chinese on the laptop after a week of having installed MX Linux. Bless.
+
+![Pinyin Config](6-oldmacbook/img/xnheconfig.png)
+
+![Pinyin Final Demo](6-oldmacbook/img/xnhedemo.png)
 
 
 ## Future Improvements & Final Words
@@ -768,7 +877,7 @@ The machine is still quite bare even after all the customisations, and I believe
 
 - REPLACE THE BATTERY
 - REPLACE THE SSD
-- Chinese Pinyin using Fcitx (subsequently, FlyPY / Xiaohe Shuangpin)
+- ~~Chinese Pinyin using Fcitx (subsequently, FlyPY / Xiaohe Shuangpin)~~ DONE!
 - Automation scripts?
 - Power management with TLP
 
