@@ -866,7 +866,7 @@ Added 10/09/2025.
 
 This part was surprisingly easy. First I installed `fcitx5`. Then I configured `fcitx5`. Then I went to `Fcitx Configuration > Addons > Classic User Interface > Font` to increase the font size because it was really small. There we go, Chinese!
 
-P.S. I use Xiaohe Double Pinyin, btw. Configuring the ipnut methods for that is really simple, actually:
+P.S. I use Xiaohe Double Pinyin, btw. Configuring the input methods for that is really simple, actually:
 
 1. Add a group.
 2. Add the Shuangpin input method from the right column by double clicking `Shuangpin` after finding it through search.
