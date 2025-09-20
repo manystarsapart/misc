@@ -936,7 +936,6 @@ Here are the exact steps I took:
 
 #### Luna Extended
 ![Luna Extended YAML](7-ibusrime/img/lunaextended.png)
-![Flypy Schema YAML](7-ibusrime/img/flypyconfig.png)
 
 ## Files
 
