@@ -6,6 +6,9 @@
 4. [Fish Shell Prompt](#4-fish-shell-prompt) - 17 aug 2025
 5. [Arknights on Waydroid](#5-arknights-on-waydroid) - 17 aug 2025
 6. [Revitalising my old Macbook with Linux](#6-revitalising-my-old-macbook-with-linux) - 3 sep 2025
+7. [Expanding & Customising IBus Rime](#7-expanding--customising-ibus-rime) - 20 sep 2025
+
+
 
 ---
 
