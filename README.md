@@ -895,7 +895,7 @@ The computer is now capable of everyday tasks such as document editing and basic
 
 I have been typing in Chinese using double pinyin for around one or two years now. When I first started using Ubuntu, I was pleasantly surprised to find good 小鹤双拼 (Flypy / Xiaohe Double Pinyin) integration in the [Rime](https://rime.im/) engine. However, **the word bank that came with rime seemed very small**. Despite all that, I persevered and simply used the suboptimal word bank for all this while.
 
-This time however, I got to customising the looks of my input method, and subsequently chanced upon the [community-driven project]() of Rime word bank expansion. WOAHH.
+This time however, I got to customising the looks of my input method (because the original font size was too small), and subsequently chanced upon the community-driven project of Rime word bank expansion. WOAHH.
 
 ## Part I: Style
 
