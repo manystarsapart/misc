@@ -1,6 +1,18 @@
+# whoami
+
+Yahallo! I'm **sero**.
+
+I main dabble in front-end web development, and aspire to expand my skillset to the back end. I daily drive a Lenovo laptop that runs on Ubuntu, and I have recently turned my old 2014 Macbook Air into an MX Linux setup. 
+
+This blog-esque markdown details **some of the miscellaneous dev I have done in my free time**. This will serve as my blog until I eventually set up a proper site when I get time off. Do stay tuned. In the meantime, Check out my **Github** profile [here](https://github.com/manystarsapart/). You can also find me on **Discord**: [@manystarsapart](https://discordapp.com/users/914167680213344307)
+
+Thanks for being here and hope you have as much fun reading these entries as I did writing them! 
+
+Signing off, sero (22 Sep 2025)
+
 # projects
 
-1. [fish shell init script](#1-fish-shell-init-script) - 22 mar 2025
+1. [Fish shell init script](#1-fish-shell-init-script) - 22 mar 2025
 2. [VTuber avatar on Ubuntu](#2-vtuber-avatar-on-ubuntu) - 27 apr 2025
 3. [Attempt on automating a Caffeine workflow](#3-attempt-on-automating-a-caffeine-workflow) - 14 jun 2025
 4. [Fish Shell Prompt](#4-fish-shell-prompt) - 17 aug 2025
@@ -12,35 +24,35 @@
 
 ---
 
-# 1. fish shell init script
-my fish config file. a simple piece of initialiser code to make the terminal more convenient for dev purposes.
+# 1. Fish shell init script
+My fish config file. a simple piece of initialiser code to make the terminal more convenient for dev purposes.
 
-written for [fish shell](https://fishshell.com/).
+Written for [fish shell](https://fishshell.com/).
 
 ![Init Script Demo Main](./1-initscript/initScriptDemoMain.png)
 
-## files 
+## Files 
 [config.fish](1-initscript/config.fish)
 
-## features
+## Features
 
-### greeting message
+### Greeting message
 
-each time the terminal is launched, or when user runs `fp`, the terminal outputs a randomised personalised greeting message (in chinese) from a curated list, with two parts:
+Each time the terminal is launched, or when user runs `fp`, the terminal outputs a randomised personalised greeting message (in Chinese) from a curated list, with two parts:
 
-1. flavour text
-2. greeting message
+1. Flavour text
+2. Greeting message
 
 See examples [here](#additional-demos).
 
-### manual call
+### Manual call
 
-the command `fg` can also be run to manually call a randomised greeting. additionally, use `fg -la` to list all available greetings in the greeting pool.
+The command `fg` can also be run to manually call a randomised greeting. Additionally, use `fg -la` to list all available greetings in the greeting pool.
 
-edit 17/08/2025: there are now time-specific greetings. likewise, you may check the greeting pool for the current time of the day using `fg -la`.
+Edit 17/08/2025: there are now time-specific greetings. Likewise, you may check the greeting pool for the current time of the day using `fg -la`.
 
 
-### other abbreviations & commands 
+### Other abbreviations & commands 
 
 - `c` --> `clear`
 - `l` --> `ls -lha`
@@ -58,19 +70,22 @@ edit 17/08/2025: there are now time-specific greetings. likewise, you may check 
 - `balanced` --> `powerprofilesctl set balanced`
 - `openseeface` --> `~/Documents/runOpenSeeFace.sh` (for [virtual avatar](#2-vtuber-avatar-on-ubuntu))
 
-(updated 22/09/2025)
+(Updated 22/09/2025)
 
 - `lr` --> `ls -lhaR` (recursively lists all files in the dir)
 - `sau` --> `sudo apt update`
 - `sai` --> `sudo apt install`
 - `copy` --> `| xclip -selection clipboard` (pipes output of command into clipboard)
 
-### additional notes
-- this script also sets the Node.js version to the latest version as my machine defaults to using Node 12. this is probably due to a mismatch in $PATH but the temporary fix using `nvm use latest` works so i am sticking with that.
+### Additional notes
+- This script also sets the Node.js version to the latest version as my machine defaults to using Node 12. This is probably due to a mismatch in $PATH, but the temporary fix using `nvm use latest` works, so I am sticking with that.
 
-### additional demos
+- This init script works in tandem with the [Fish prompt](#4-fish-shell-prompt) I wrote. Do check that one out as well if you are interested.
 
-(updated 17/08/2025)
+
+### Demos
+
+(Updated 17/08/2025)
 
 ![Init Script Demo 1](./1-initscript/initScriptDemo1.png)
 ![Init Script Demo 2](./1-initscript/initScriptDemo2.png)
@@ -232,6 +247,8 @@ sudo modprobe v4l2loopback devices=1 exclusive_caps=1 card_label="OBS-VirtualCam
 
 TL;DR: My version of GNOME does not support it & I don't want to upgrade to Ubuntu 24.04 yet.
 
+![Caffeine GNOME Extension](3-automatedcaffeine/caffeine.png)
+
 ---
 
 ## What and Why?
@@ -357,14 +374,11 @@ To end this mildly disappointing section off on a slightly more lighthearted not
 
 > What does all this have to do with eggs? "Ei", "Eis", "Brei", and "Reis" are, respectively, the German words for "egg", "ice" or "ice cream", "mush" (think: porridge) and "rice". There you go, now you can go on holidays to a German speaking country and sustain yourself on a nutritionally imbalanced diet. 
 
-
-
 ## The product
 
 In the end, I settled with everything I had up to Part II. There would be a prompt at startup asking if I wanted to activate Caffeine, and if I selected Yes, it would prompt me to use my hotkey (`super` + `c`) to activate it. This would serve more as a reminder rather than an automation process, but I will settle for this.
 
-### File
-[caffeineReminder.sh](./3-automatedcaffeine/caffeineReminder.sh)
+Final files can be found [here](#files-2).
 
 
 ## Afterthoughts
@@ -374,7 +388,7 @@ This was an interesting dive into an aspect that I have hardly come into contact
 Upgrading to Ubuntu 24.04 and trying to fix broken dependencies last year has left a fowl taste in my mouth. Maybe in the near future, when I can wield Linux better, I will do so and finally get my daily morning fix of virtual Caffeine.
 
 
-## Update - 19 Jun 2025
+## Update – 19 Jun 2025
 
 Putting this script inside the fish startup prompt, I realised, was not convenient at all. I had two problems:
 
@@ -415,7 +429,11 @@ Let's try this again. Digging again, I found a wonderful [guide](https://ubuntuh
 
 Maybe next time. For now, at least the startup script works.
 
-#### Files
+## Update – 22 September 2025
+
+I have also enabled Caffeine in my newly installed MX Linux system on my [Macbook Air](#6-revitalising-my-old-macbook-with-linux). I did not set up a customised script for it as there is no need for it, so Caffeine remains as it is, out of the box, on that machine.
+
+## Files
 [caffeineReminder.sh](./3-automatedcaffeine/caffeineReminder.sh)
 
 [caffeineReminder.desktop](./3-automatedcaffeine/caffeineReminder.desktop)
@@ -500,6 +518,10 @@ I consulted Claude for some of the more technical aspects of status detection, w
 That is all. Thank you for reading till the end of this project. See you in the next one soon.
 
 # 5. Arknights on Waydroid
+
+![Waydroid & Arknights App Icons](5-arknightswaydroid/thumbnail.png)
+
+---
 
 ## Preface
 
@@ -880,6 +902,23 @@ Finally I can type Chinese on the laptop after a week of having installed MX Lin
 
 ![Pinyin Final Demo](6-oldmacbook/img/xnhedemo.png)
 
+## Part XI: Backing Up
+
+Added 22/09/2025.
+
+I need to be safe. Let's back up the device. For this I used a live USB stick containing CloneZilla, and I chose expert mode this time since I needed CloneZilla to help rescue if anything went wrong. 
+
+Here's the TLDR: `/usr/sbin/ocs-sr -q2 -c -j2 -ntfs-ok -rescue -z9p -i 4096 -fsck-y -senc -plu -p poweroff savedisk 2025-09-21-21-img sda`
+
+Explanations:
+- `ntfs-ok`: Skip ntfs integrity check.
+- `rescue`: If disk blocks read errors, skip & continue the next one (failing SSD hence this).
+- `fsck-y`: Checks & repairs file system before cloning
+- `sda`: Clones `/dev/sda`. `sda1` is my root, `sda2` is home, and `sda3` should be swap.
+
+I backed all of this up into a 128GB USB stick, which is plenty for my system since there has not been much usage in terms of storage. Thanks to using `device-image` backup, the size of the backup is only around 15GB. I renamed the backup folder to `2025-09-21-21-mxlinux-img` so as not to confuse with my Ubuntu backup. 
+
+Wonderful. 
 
 ## Future Improvements & Final Words
 
