@@ -975,14 +975,14 @@ Here's my file structure for reference: [File Structure](7-ibusrime/filestructur
 
 I'm surprised the extended dictionaries are in such a niche corner of the internet. Maybe every IBus Rime user is a power user and I am living under a rock, but now I am armed with a much larger arsenal of words. 
 
-Moving forward, I saw in the documentation that Rime actually supports Wu Chinese typing. One day, I will learn Wu pinyin (通用吴语拼音) and use it. 
+Moving forward, I saw in the documentation that Rime actually supports Suzhou-Pinyin (Soutzoe) typing. One day I will learn to use it. 
 
 
 ## References
-- https://github.com/Iorest/rime-dict
-- https://github.com/zhangheng18/rime-dict/
-- https://www.cnblogs.com/keatonlao/p/12983158.html
-- https://blog.csdn.net/ken2232/article/details/144545853
-- https://wiki.archlinux.org/title/Rime
-- https://sspai.com/post/90068 
-- https://tieba.baidu.com/p/5602640654#
+- <https://github.com/Iorest/rime-dict>
+- <https://github.com/zhangheng18/rime-dict/>
+- <https://www.cnblogs.com/keatonlao/p/12983158.html>
+- <https://blog.csdn.net/ken2232/article/details/144545853>
+- <https://wiki.archlinux.org/title/Rime>
+- <https://sspai.com/post/90068>
+- <https://tieba.baidu.com/p/5602640654#>
