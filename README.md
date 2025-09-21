@@ -58,6 +58,13 @@ edit 17/08/2025: there are now time-specific greetings. likewise, you may check 
 - `balanced` --> `powerprofilesctl set balanced`
 - `openseeface` --> `~/Documents/runOpenSeeFace.sh` (for [virtual avatar](#2-vtuber-avatar-on-ubuntu))
 
+(updated 22/09/2025)
+
+- `lr` --> `ls -lhaR` (recursively lists all files in the dir)
+- `sau` --> `sudo apt update`
+- `sai` --> `sudo apt install`
+- `copy` --> `| xclip -selection clipboard` (pipes output of command into clipboard)
+
 ### additional notes
 - this script also sets the Node.js version to the latest version as my machine defaults to using Node 12. this is probably due to a mismatch in $PATH but the temporary fix using `nvm use latest` works so i am sticking with that.
 

@@ -8,6 +8,11 @@ fish_add_path ~/.local/bin
 
 abbr -a c clear 
 abbr -a l ls -lha
+abbr -a lr ls -lhaR
+abbr -a sau sudo apt update
+abbr -a sai sudo apt install
+abbr -a copy --position anywhere --set-cursor "% | xclip -selection clipboard"
+
 abbr -a fp 'fish --private -C "clear && set_color brred; echo \"Started fish in private mode.\"; set_color normal"'
 abbr -a fg 'fish_greeting'
 
