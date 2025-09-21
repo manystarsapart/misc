@@ -908,7 +908,15 @@ Added 22/09/2025.
 
 I need to be safe. Let's back up the device. For this I used a live USB stick containing CloneZilla, and I chose expert mode this time since I needed CloneZilla to help rescue if anything went wrong. 
 
-Here's the TLDR: `/usr/sbin/ocs-sr -q2 -c -j2 -ntfs-ok -rescue -z9p -i 4096 -fsck-y -senc -plu -p poweroff savedisk 2025-09-21-21-img sda`
+#### Booting
+
+After plugging in both the CloneZilla and the storage (backup) USB sticks, I held down `option` while pressing the power button to boot into the live USB, as per usual procedure for the 2014 Macbook Air model, and selected the CloneZilla USB to boot into.
+
+At the first selection menu, I used the default `VGA 800x600` version of CloneZilla, with one edit: I have mentioned above that all boot parameters in GRUB needed to include `intel_iommu=off` in order to detect my SSD drive on this machine, so booting from CloneZilla needed that as well. 
+
+#### Cloning
+
+Here's the TLDR: `/usr/sbin/ocs-sr -q2 -c -j2 -ntfs-ok -rescue -z9p -i 4096 -fsck-y -senc -plu -p poweroff savedisk 2025-09-21-21-img sda`. Of course, I picked these options separately in the TUI mode, but this is a more straightforward way to put forth the options.
 
 Explanations:
 - `ntfs-ok`: Skip ntfs integrity check.
