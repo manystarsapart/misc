@@ -54,9 +54,35 @@ Edit 17/08/2025: there are now time-specific greetings. Likewise, you may check 
 
 ### Other abbreviations & commands 
 
+(Updated 22/09/2025)
+
+#### General
+
 - `c` --> `clear`
 - `l` --> `ls -lha`
+- `lr` --> `ls -lhaR` (recursively lists all files in the dir)
+- `s` --> `sudo`
 - `fp` --> `fish --private` (launches fish in private mode)
+- `copy` --> `| xclip -selection clipboard` (pipes output of command into clipboard)
+- `commands` --> `cat ~/Documents/scripts/commands_help.txt | less` (shows [a guide](1-initscript/commands_help.txt) to these abbreviated commands)
+
+#### Settings & Debug
+
+- `power-saver` --> `powerprofilesctl set power-saver`
+- `balanced` --> `powerprofilesctl set balanced`
+- `performance` --> `powerprofilesctl set performance`
+- `cpufreq` --> `watch -n 0.5 "grep 'cpu MHz' /proc/cpuinfo | head -n $(nproc)"` (shows frequencies of all CPU cores)
+- `sysinfo` --> `sudo -E ~/Documents/scripts/printsysinfo_new.sh | xclip -selection clipboard` (copies debug information to clipboard)
+- `printsysinfo` --> `sudo -E ~/Documents/scripts/printsysinfo_new.sh` (prints debug information in terminal)
+
+#### Package Management
+
+- `sau` --> `sudo apt update`
+- `sai` --> `sudo apt install`
+- `saa` --> `sudo apt autoremove`
+
+#### Git & Dev
+
 - `gad` --> `git add .`
 - `gc` --> `git commit -S -m "%"` where % becomes cursor location
 - `gp` --> `git push`
@@ -64,18 +90,15 @@ Edit 17/08/2025: there are now time-specific greetings. Likewise, you may check 
 - `nrd` --> `npm run dev` (vite)
 - `nrb` --> `npm run build` (vite)
 - `nrp` --> `npm run preview` (vite)
+
+
+#### Apps & Misc
+
 - `co` --> `codium` (launches codium)
-- `s` --> `sudo`
-- `power-saver` --> `powerprofilesctl set power-saver`
-- `balanced` --> `powerprofilesctl set balanced`
+- `ghidra` --> `~/ghidra_11.3.2_PUBLIC/ghidraRun` (launches ghidra)
+- `autopsy` --> `~/autopsy/autopsy-4.22.1/bin/autopsy` (launches autopsy)
+
 - `openseeface` --> `~/Documents/runOpenSeeFace.sh` (for [virtual avatar](#2-vtuber-avatar-on-ubuntu))
-
-(Updated 22/09/2025)
-
-- `lr` --> `ls -lhaR` (recursively lists all files in the dir)
-- `sau` --> `sudo apt update`
-- `sai` --> `sudo apt install`
-- `copy` --> `| xclip -selection clipboard` (pipes output of command into clipboard)
 
 ### Additional notes
 - This script also sets the Node.js version to the latest version as my machine defaults to using Node 12. This is probably due to a mismatch in $PATH, but the temporary fix using `nvm use latest` works, so I am sticking with that.

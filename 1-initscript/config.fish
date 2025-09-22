@@ -6,37 +6,52 @@ if status is-interactive
 nvm use latest --silent
 fish_add_path ~/.local/bin
 
+# help
+abbr -a commands cat ~/Documents/scripts/commands_help.txt \| less
+
+# general
 abbr -a c clear 
 abbr -a l ls -lha
 abbr -a lr ls -lhaR
+abbr -a s sudo
+abbr -a copy --position anywhere --set-cursor "% | xclip -selection clipboard"
+abbr -a fp 'fish --private -C "clear && set_color brred; echo \"Started fish in private mode.\"; set_color normal"'
+
+# settings & debug
+abbr -a sysinfo "sudo -E ~/Documents/scripts/printsysinfo_new.sh | xclip -selection clipboard"
+abbr -a printsysinfo sudo -E ~/Documents/scripts/printsysinfo_new.sh
+abbr -a power-saver powerprofilesctl set power-saver
+abbr -a balanced powerprofilesctl set balanced
+abbr -a performance powerprofilesctl set performance
+abbr -a cpufreq watch -n 0.5 \"grep \'cpu MHz\' /proc/cpuinfo \| head -n $(nproc)\"
+
+# package management
 abbr -a sau sudo apt update
 abbr -a sai sudo apt install
-abbr -a copy --position anywhere --set-cursor "% | xclip -selection clipboard"
+abbr -a saa sudo apt autoremove
 
-abbr -a fp 'fish --private -C "clear && set_color brred; echo \"Started fish in private mode.\"; set_color normal"'
-abbr -a fg 'fish_greeting'
-
+# git & dev
 abbr -a gad git add .
 abbr -a gc --set-cursor 'git commit -S -m "%"'
 abbr -a gp git push
 abbr -a gpl git pull
-
 abbr -a nrd npm run dev -- --open
 abbr -a nrb npm run build
 abbr -a nrp npm run preview -- --open
 
+# greeting
+abbr -a fg 'fish_greeting'
+
+# apps & misc
 abbr -a co codium
-abbr -a s sudo
 abbr -a ghidra ~/ghidra_11.3.2_PUBLIC/ghidraRun
-abbr -a autopsy /home/aya/autopsy/autopsy-4.22.1/bin/autopsy
+abbr -a autopsy ~/autopsy/autopsy-4.22.1/bin/autopsy
+abbr -a openseeface ~/Documents/scripts/runOpenSeeFace.sh
 
-abbr -a power-saver powerprofilesctl set power-saver
-abbr -a balanced powerprofilesctl set balanced
 
-abbr -a openseeface ~/Documents/runOpenSeeFace.sh
 
 set_color normal
-echo "Private mode: fp"
+echo "Private mode: fp; Help: commands"
  
 
 
