@@ -452,7 +452,7 @@ Let's try this again. Digging again, I found a wonderful [guide](https://ubuntuh
 
 Maybe next time. For now, at least the startup script works.
 
-## Update – 22 September 2025
+## Update – 22 Sep 2025
 
 I have also enabled Caffeine in my newly installed MX Linux system on my [Macbook Air](#6-revitalising-my-old-macbook-with-linux). I did not set up a customised script for it as there is no need for it, so Caffeine remains as it is, out of the box, on that machine.
 
