@@ -32,7 +32,8 @@ Written for [fish shell](https://fishshell.com/).
 ![Init Script Demo Main](./1-initscript/initScriptDemoMain.png)
 
 ## Files 
-[config.fish](1-initscript/config.fish)
+- [config.fish](1-initscript/config.fish)
+- [commands_help.txt](1-initscript/commands_help.txt)
 
 ## Features
 
