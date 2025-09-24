@@ -1078,7 +1078,7 @@ I saw in the documentation that Rime actually supports Suzhou-Pinyin (Soutzoe) t
 
 Purely for fun. Also to show off my hackerman-ness to my peers on the fly.
 
-![iSH Project](8-iphone-terminal/img/iSH.png)
+![`neofetch`](8-iphone-terminal/img/neofetch.png)
 
 Authored 24/09/2025.
 
@@ -1146,8 +1146,6 @@ esac
 ## Additional Demo
 
 ![`ls -lhaR`](8-iphone-terminal/img/lr.png)
-
-![`neofetch`](8-iphone-terminal/img/neofetch.png)
 
 ![`asciiquarium`](8-iphone-terminal/img/asciiquarium.png)
 
