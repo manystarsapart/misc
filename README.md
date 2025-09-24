@@ -12,16 +12,14 @@ Signing off, sero (22 Sep 2025)
 
 # Projects
 
-<!-- the dates being in brackets are not supposed to be links... this is not a formatting issue. i just dont want it to look like 1.22/03/2025 because its uglier!!!! -->
-
-1. [22/03/2025]: [Fish shell init script](#1-fish-shell-init-script)
-2. [27/04/2025]: [VTuber avatar on Ubuntu](#2-vtuber-avatar-on-ubuntu)
-3. [14/06/2025]: [Attempt on automating a Caffeine workflow](#3-attempt-on-automating-a-caffeine-workflow)
-4. [17/08/2025]: [Fish Shell Prompt](#4-fish-shell-prompt)
-5. [17/08/2025]: [Arknights on Waydroid](#5-arknights-on-waydroid)
-6. [03/09/2025]: [Revitalising my old Macbook with Linux](#6-revitalising-my-old-macbook-with-linux)
-7. [20/09/2025]: [Expanding & Customising IBus Rime](#7-expanding--customising-ibus-rime)
-8. [24/09/2025]: [iPhone Terminal](#8-iphone-terminal)
+1. 22/03/2025: [Fish shell init script](#1-fish-shell-init-script)
+2. 27/04/2025: [VTuber avatar on Ubuntu](#2-vtuber-avatar-on-ubuntu)
+3. 14/06/2025: [Attempt on automating a Caffeine workflow](#3-attempt-on-automating-a-caffeine-workflow)
+4. 17/08/2025: [Fish Shell Prompt](#4-fish-shell-prompt)
+5. 17/08/2025: [Arknights on Waydroid](#5-arknights-on-waydroid)
+6. 03/09/2025: [Revitalising my old Macbook with Linux](#6-revitalising-my-old-macbook-with-linux)
+7. 20/09/2025: [Expanding & Customising IBus Rime](#7-expanding--customising-ibus-rime)
+8. 24/09/2025: [iPhone Terminal](#8-iphone-terminal)
 
 
 
