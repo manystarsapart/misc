@@ -1132,7 +1132,8 @@ case "$-" in
 esac
 ```
 
-[!WARNING] Do not simply include `exec /usr/bin/fish` in `~/.profile`! **This will hang iSH**. This means the shell doesn't care if it is in interactive mode and just goes into a loop or simply breaks.
+> [!WARNING] 
+> Do not simply include `exec /usr/bin/fish` in `~/.profile`! **This will hang iSH**. This means the shell doesn't care if it is in interactive mode and just goes into a loop or simply breaks.
 
 9. And here we have it! Reboot by removing iSH from background apps, and launch into iSH again. 
 
