@@ -1140,7 +1140,7 @@ esac
 ## Limitations
 
 - Date & Prompt symbol does not seem to work for the prompt function. Date is just missing, while prompt symbol defaults to `#`.
-- On closer inspection: `echo (date "+%H:%M:%S"` returns `09:41` when the time now for me (GMT+8) is `17:41:30`. Notice the seconds missing (probably an iPhone issue), and the time is in GMT. This is fixed in [`config.fish`](8-iphone-terminal/config.fish) as well: `set -l hour (math (date +%H) + $gmt_offset)`.
+- On closer inspection: `echo (date "+%H:%M:%S")` returns `09:41` when the time now for me (GMT+8) is `17:41:30`. Notice the seconds missing (probably an iPhone issue), and the time is in GMT. This is fixed in [`config.fish`](8-iphone-terminal/config.fish) as well: `set -l hour (math (date +%H) + $gmt_offset)`.
 - Most packages do not work due to lacking dependencies. This is an iPhone after all.
 
 
