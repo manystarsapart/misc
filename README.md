@@ -10,15 +10,18 @@ Thanks for being here and hope you have as much fun reading these entries as I d
 
 Signing off, sero (22 Sep 2025)
 
-# projects
+# Projects
 
-1. [Fish shell init script](#1-fish-shell-init-script) - 22 mar 2025
-2. [VTuber avatar on Ubuntu](#2-vtuber-avatar-on-ubuntu) - 27 apr 2025
-3. [Attempt on automating a Caffeine workflow](#3-attempt-on-automating-a-caffeine-workflow) - 14 jun 2025
-4. [Fish Shell Prompt](#4-fish-shell-prompt) - 17 aug 2025
-5. [Arknights on Waydroid](#5-arknights-on-waydroid) - 17 aug 2025
-6. [Revitalising my old Macbook with Linux](#6-revitalising-my-old-macbook-with-linux) - 3 sep 2025
-7. [Expanding & Customising IBus Rime](#7-expanding--customising-ibus-rime) - 20 sep 2025
+<!-- the dates being in brackets are not supposed to be links... this is not a formatting issue. i just dont want it to look like 1.22/03/2025 because its uglier!!!! -->
+
+1. [22/03/2025]: [Fish shell init script](#1-fish-shell-init-script)
+2. [27/04/2025]: [VTuber avatar on Ubuntu](#2-vtuber-avatar-on-ubuntu)
+3. [14/06/2025]: [Attempt on automating a Caffeine workflow](#3-attempt-on-automating-a-caffeine-workflow)
+4. [17/08/2025]: [Fish Shell Prompt](#4-fish-shell-prompt)
+5. [17/08/2025]: [Arknights on Waydroid](#5-arknights-on-waydroid)
+6. [03/09/2025]: [Revitalising my old Macbook with Linux](#6-revitalising-my-old-macbook-with-linux)
+7. [20/09/2025]: [Expanding & Customising IBus Rime](#7-expanding--customising-ibus-rime)
+8. [24/09/2025]: [iPhone Terminal](#8-iphone-terminal)
 
 
 
@@ -30,6 +33,8 @@ My fish config file. a simple piece of initialiser code to make the terminal mor
 Written for [fish shell](https://fishshell.com/).
 
 ![Init Script Demo Main](./1-initscript/initScriptDemoMain.png)
+
+Authored 22/03/2025.
 
 ## Files 
 - [config.fish](1-initscript/config.fish)
@@ -125,6 +130,8 @@ This aims to serve as a guide and document my endeavor in figuring out how to re
 
 ![OBS Avatar Demo 2](./2-virtualavatar/OBSAvatarDemo2.png)
 ![OBS Avatar Demo 1](./2-virtualavatar/OBSAvatarDemo1.png)
+
+Authored 27/04/2025.
 
 ## Notes
 
@@ -272,6 +279,8 @@ sudo modprobe v4l2loopback devices=1 exclusive_caps=1 card_label="OBS-VirtualCam
 TL;DR: My version of GNOME does not support it & I don't want to upgrade to Ubuntu 24.04 yet.
 
 ![Caffeine GNOME Extension](3-automatedcaffeine/caffeine.png)
+
+Authored 14/06/2025.
 
 ---
 
@@ -470,6 +479,8 @@ I have also enabled Caffeine in my newly installed MX Linux system on my [Macboo
 
 An attempt on further customising my terminal. Written for Fish, inspired by the inbuilt Informative style, but with some extra features.
 
+Authored 17/08/2025.
+
 ## Files
 
 [fish_prompt.fish](4-fishprompt/fish_prompt.fish)
@@ -544,6 +555,8 @@ That is all. Thank you for reading till the end of this project. See you in the 
 # 5. Arknights on Waydroid
 
 ![Waydroid & Arknights App Icons](5-arknightswaydroid/thumbnail.png)
+
+Authored 17/08/2025.
 
 ---
 
@@ -623,6 +636,8 @@ TBC
 
 
 # 6. Revitalising my old Macbook with Linux
+
+Authored 03/09/2025.
 
 ## Preface
 
@@ -872,7 +887,7 @@ Apple Facetime HD (PCI:0000:02:00.0):
 
 Great!
 
-Now I have to ensure I dont have to rebuild it every time I upgrade kernel in the future. Hello DKMS!
+Now I have to ensure I don't have to rebuild it every time I upgrade kernel in the future. Hello DKMS!
 
 ```bash
 sudo apt update
@@ -883,7 +898,7 @@ sudo dkms add -m facetimehd -v 0.6.13
 sudo nano /usr/src/facetimehd-0.6.13/dkms.conf
 ```
 
-And overwrite the deprecated feature of `MODULES_CONF` that previously in the git repository:
+And overwrite the deprecated feature of `MODULES_CONF` that previously existed in the dated git repository:
 
 ```conf
 PACKAGE_NAME="facetimehd"
@@ -969,6 +984,8 @@ The computer is now capable of everyday tasks such as document editing and basic
 
 # 7. Expanding & Customising IBus Rime
 
+Authored 20/09/2025.
+
 ## Preface
 
 I have been typing in Chinese using double pinyin for around one or two years now. When I first started using Ubuntu, I was pleasantly surprised to find good 小鹤双拼 (Flypy / Xiaohe Double Pinyin) integration in the [Rime](https://rime.im/) engine. However, **the word bank that came with rime seemed very small**. Despite all that, I persevered and simply used the suboptimal word bank for all this while.
@@ -1046,7 +1063,7 @@ Here's my file structure for reference: [File Structure](7-ibusrime/filestructur
 
 I'm surprised the extended dictionaries are in such a niche corner of the internet. Maybe every IBus Rime user is a power user and I am living under a rock, but now I am armed with a much larger arsenal of words. 
 
-Moving forward, I saw in the documentation that Rime actually supports Suzhou-Pinyin (Soutzoe) typing. One day I will learn to use it. 
+I saw in the documentation that Rime actually supports Suzhou-Pinyin (Soutzoe) typing. One day I will learn to use it. 
 
 
 ## References
@@ -1057,3 +1074,108 @@ Moving forward, I saw in the documentation that Rime actually supports Suzhou-Pi
 - <https://wiki.archlinux.org/title/Rime>
 - <https://sspai.com/post/90068>
 - <https://tieba.baidu.com/p/5602640654#>
+
+
+# 8. iPhone Terminal
+
+Purely for fun. Also to show off my hackerman-ness to my peers on the fly.
+
+![iSH Project](8-iphone-terminal/img/iSH.png)
+
+Authored 24/09/2025.
+
+## Preface
+
+I chanced upon the genius [iSH Project](https://github.com/ish-app/ish), which is:
+
+>  A project to get a Linux shell running on iOS, using usermode x86 emulation and syscall translation.
+
+Big words. All I know is that I can run a terminal on my iPhone!
+
+## Install & My Customisation Steps
+
+1. Install iSH from the App Store or the Altstore if you are feeling fancy.
+2. Open the app.
+3. Run some installation commands to install cool packages. For me, I ran:
+
+```bash
+apk add fish # fish terminal!!!!!!!!
+apk add neofetch # system info (although it is really wrong for the iphone)
+apk add asciiquarium # colourful ascii aquarium
+```
+
+4. Now fish needs some customisation. I modified my previous projects' fish scripts into: [`config.fish`](8-iphone-terminal/config.fish) as well as [`fish_prompt.fish`](8-iphone-terminal/fish_prompt.fish), cutting out the unnecessary commands and only leaving the ones that actually work (Note: `bryellow` seems to break, so I changed it to just `yellow`).
+5. Move these files into the `root` folder using the iPhone native Files app. I chose to copy the text and paste them manually:
+
+![Root Directory Paste](8-iphone-terminal/img/root.png)
+
+![Text.txt](8-iphone-terminal/img/text.png)
+
+6. Rename the pasted files to their correct names. I did this inside the native Files app, but you can also do it in the iSH terminal itself using `mv`.
+
+![Change Extension](8-iphone-terminal/img/changeext.png)
+
+7. Now, move these files from `~` (which is `/root`, home directory, by default) to `~/.config/fish` (for `config.fish`) and `~/.config/fish/functions` (for `fish_prompt.fish`) separately. Create directories using `mkdir` if necessary.
+
+```bash
+mv ~/config.fish ~/.config/fish
+mkdir ~/.config/fish/functions
+mv ~/fish_prompt.fish ~/.config/fish/functions
+```
+
+8. This sets up the fish commands nicely. Now, I also wanted fish to be the default shell, as Alpine uses `ash` as the default shell. This is done through creating a [`.profile`](8-iphone-terminal/.profile) config file in `~`, which runs any commands inside it every time iSH boots up (and hence booting up `ash`). 
+
+```bash
+# checks for presence of "i" flag (interactive session) inside shell flags. if yes, starts fish
+# because the default greeting text in iSH still shows after exec'ing fish, i also added the clear command to clear the CLI before fish starts up. hence the clear.
+
+case "$-" in
+  *i*) [ -x /usr/bin/fish ] && clear && exec /usr/bin/fish ;;
+esac
+```
+
+[!WARNING] Do not simply include `exec /usr/bin/fish` in `~/.profile`! **This will hang iSH**. This means the shell doesn't care if it is in interactive mode and just goes into a loop or simply breaks.
+
+9. And here we have it! Reboot by removing iSH from background apps, and launch into iSH again. 
+
+## Limitations
+
+- Date & Prompt symbol does not seem to work for the prompt function. Date is just missing, while prompt symbol defaults to `#`.
+- On closer inspection: `echo (date "+%H:%M:%S"` returns `09:41` when the time now for me (GMT+8) is `17:41:30`. Notice the seconds missing (probably an iPhone issue), and the time is in GMT. This is fixed in [`config.fish`](8-iphone-terminal/config.fish) as well: `set -l hour (math (date +%H) + $gmt_offset)`.
+- Most packages do not work due to lacking dependencies. This is an iPhone after all.
+
+
+## Additional Demo
+
+![`ls -lhaR`](8-iphone-terminal/img/lr.png)
+
+![`neofetch`](8-iphone-terminal/img/neofetch.png)
+
+![`asciiquarium`](8-iphone-terminal/img/asciiquarium.png)
+
+## Files
+
+[`.profile`](8-iphone-terminal/.profile) (~/.profile)
+
+[`config.fish`](8-iphone-terminal/config.fish) (~/.config/fish/config.fish)
+
+[`fish_prompt.fish`](8-iphone-terminal/fish_prompt.fish) (~/.config/fish/functions/fish_prompt.fish)
+
+
+
+
+
+
+## Final Words
+
+This was a very simple project, if you can even call it one. It was mostly dealing with the lack of actually-linux things on the iPhone, and wow I wonder why. Bless the developers for iSH though, one really needs to scrape the bottom of the barrel when it comes to things like this. Moving forward, I will pen more things down once I find more uses for this terminal inside my phone.
+
+## References
+
+- <https://ipadlinux.org/#about> (I originally chanced upon this while browsing iPad linux options)
+- <https://github.com/ish-app/ish/wiki>
+- <https://fishshell.com/docs/current/>
+- <https://wiki.alpinelinux.org/wiki/Shell_management>
+- <https://unix.stackexchange.com/a/26557>
+- <https://unix.stackexchange.com/a/26827>
+
