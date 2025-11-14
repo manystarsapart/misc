@@ -47,7 +47,7 @@ Each time the terminal is launched, or when user runs `fp`, the terminal outputs
 1. Flavour text
 2. Greeting message
 
-See examples [here](#additional-demos).
+See examples [here](#demos).
 
 ### Manual call
 
